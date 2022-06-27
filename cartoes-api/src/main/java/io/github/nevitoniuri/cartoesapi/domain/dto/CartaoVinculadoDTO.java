@@ -1,4 +1,4 @@
-package io.github.nevitoniuri.cartoesapi.application.representation;
+package io.github.nevitoniuri.cartoesapi.domain.dto;
 
 import io.github.nevitoniuri.cartoesapi.domain.CartaoVinculado;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,17 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartaoVinculadoResponse {
+public class CartaoVinculadoDTO {
     private String nome;
     private String bandeira;
     private BigDecimal limite;
     private LocalDateTime dataVinculacao;
 
-    public static CartaoVinculadoResponse of(CartaoVinculado cartaoVinculado) {
-        CartaoVinculadoResponse response = new CartaoVinculadoResponse();
+    public static CartaoVinculadoDTO toDTO(CartaoVinculado cartaoVinculado) {
+        CartaoVinculadoDTO response = new CartaoVinculadoDTO();
         response.setNome(cartaoVinculado.getCartao().getNome());
         response.setBandeira(cartaoVinculado.getCartao().getBandeira().toString());
-        response.setLimite(cartaoVinculado.getCartao().getLimite());
+        response.setLimite(cartaoVinculado.getCartao().getLimiteBase());
         response.setDataVinculacao(cartaoVinculado.getDataVinculacao());
         return response;
     }

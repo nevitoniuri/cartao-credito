@@ -46,10 +46,10 @@ public class AvaliadorService {
             var cartoesDisponiveis = cartoesApiClient.buscarCartoesPorRendaMenorIgual(renda);
             var listaCartoesAprovados = new ArrayList<CartaoAprovado>();
             cartoesDisponiveis.forEach(cartao -> {
-                var limiteBasico = cartao.getLimite();
+                var limiteBasico = cartao.getLimiteBase();
                 var idade = BigDecimal.valueOf(cliente.getIdade());
                 var fator = idade.divide(BigDecimal.valueOf(10));
-                var limiteAprovado = limiteBasico.multiply(fator);
+                var limiteAprovado = limiteBasico.multiply(fator).setScale(2, BigDecimal.ROUND_HALF_UP);
                 var cartaoAprovado = CartaoAprovado.builder()
                         .cartao(cartao.getNome())
                         .bandeira(cartao.getBandeira())

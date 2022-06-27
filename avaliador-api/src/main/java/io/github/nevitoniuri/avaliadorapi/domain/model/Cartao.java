@@ -9,6 +9,6 @@ public class Cartao {
     private Long id;
     private String nome;
     private String bandeira;
-    private BigDecimal renda;
-    private BigDecimal limite;
+    private BigDecimal rendaMinima;
+    private BigDecimal limiteBase;
 }

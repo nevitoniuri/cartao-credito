@@ -6,10 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CartaoRepository extends JpaRepository<Cartao, Long> {
 
-    List<Cartao> findByRendaLessThanEqual(BigDecimal renda);
+    List<Cartao> findByRendaMinimaLessThanEqual(BigDecimal renda);
+
+    Optional<Cartao> findByNome(String nome);
 
 }
