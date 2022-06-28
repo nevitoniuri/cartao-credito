@@ -1,4 +1,4 @@
-package io.github.nevitoniuri.clientesapi.exception;
+package io.github.nevitoniuri.clientesapi.infra.exception;
 
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;

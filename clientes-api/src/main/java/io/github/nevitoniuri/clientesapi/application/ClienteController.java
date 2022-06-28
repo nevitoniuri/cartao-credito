@@ -1,8 +1,8 @@
 package io.github.nevitoniuri.clientesapi.application;
 
-import io.github.nevitoniuri.clientesapi.application.representation.ClienteSaveRequest;
+import io.github.nevitoniuri.clientesapi.application.request.ClienteSaveRequest;
 import io.github.nevitoniuri.clientesapi.domain.Cliente;
-import io.github.nevitoniuri.clientesapi.util.ClienteCriado;
+import io.github.nevitoniuri.clientesapi.infra.util.ClienteCriado;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("clientes")
-public class ClienteResource {
+public class ClienteController {
 
     private final ClienteService service;
 

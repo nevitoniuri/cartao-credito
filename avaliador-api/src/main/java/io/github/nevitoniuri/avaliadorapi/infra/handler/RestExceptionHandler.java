@@ -1,7 +1,7 @@
 package io.github.nevitoniuri.avaliadorapi.infra.handler;
 
-import io.github.nevitoniuri.clientesapi.exception.ExceptionDetails;
-import io.github.nevitoniuri.clientesapi.exception.ValidationExceptionDetails;
+import io.github.nevitoniuri.clientesapi.infra.exception.ExceptionDetails;
+import io.github.nevitoniuri.clientesapi.infra.exception.ValidationExceptionDetails;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

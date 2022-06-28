@@ -1,6 +1,6 @@
 package io.github.nevitoniuri.cartoesapi.application;
 
-import io.github.nevitoniuri.cartoesapi.application.request.CartaoSalvarRequest;
+import io.github.nevitoniuri.cartoesapi.domain.request.CartaoSalvarRequest;
 import io.github.nevitoniuri.cartoesapi.domain.Cartao;
 import io.github.nevitoniuri.cartoesapi.domain.CartaoVinculado;
 import io.github.nevitoniuri.cartoesapi.domain.dto.CartaoDTO;

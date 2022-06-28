@@ -1,4 +1,4 @@
-package io.github.nevitoniuri.clientesapi.util;
+package io.github.nevitoniuri.clientesapi.infra.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package io.github.nevitoniuri.cartoesapi.application.request;
+package io.github.nevitoniuri.cartoesapi.domain.request;
 
 import io.github.nevitoniuri.cartoesapi.domain.BandeiraCartao;
 import io.github.nevitoniuri.cartoesapi.domain.Cartao;

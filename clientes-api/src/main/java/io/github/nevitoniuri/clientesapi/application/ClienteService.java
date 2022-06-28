@@ -1,8 +1,8 @@
 package io.github.nevitoniuri.clientesapi.application;
 
 import io.github.nevitoniuri.clientesapi.domain.Cliente;
-import io.github.nevitoniuri.clientesapi.exception.ClienteJaCadastradoException;
-import io.github.nevitoniuri.clientesapi.exception.ClienteNaoEncontradoException;
+import io.github.nevitoniuri.clientesapi.infra.exception.ClienteJaCadastradoException;
+import io.github.nevitoniuri.clientesapi.infra.exception.ClienteNaoEncontradoException;
 import io.github.nevitoniuri.clientesapi.infra.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

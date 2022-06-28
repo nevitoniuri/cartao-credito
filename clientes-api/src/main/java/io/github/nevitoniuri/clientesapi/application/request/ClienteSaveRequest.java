@@ -1,4 +1,4 @@
-package io.github.nevitoniuri.clientesapi.application.representation;
+package io.github.nevitoniuri.clientesapi.application.request;
 
 import io.github.nevitoniuri.clientesapi.domain.Cliente;
 import lombok.Data;

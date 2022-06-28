@@ -6,7 +6,7 @@ import io.github.nevitoniuri.avaliadorapi.domain.response.AvaliacaoResponse;
 import io.github.nevitoniuri.avaliadorapi.domain.response.SituacaoClienteResponse;
 import io.github.nevitoniuri.avaliadorapi.infra.client.CartoesControllerClient;
 import io.github.nevitoniuri.avaliadorapi.infra.client.ClienteControllerClient;
-import io.github.nevitoniuri.clientesapi.exception.ClienteNaoEncontradoException;
+import io.github.nevitoniuri.clientesapi.infra.exception.ClienteNaoEncontradoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
