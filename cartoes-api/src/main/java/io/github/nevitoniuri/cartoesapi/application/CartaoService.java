@@ -2,6 +2,7 @@ package io.github.nevitoniuri.cartoesapi.application;
 
 import io.github.nevitoniuri.cartoesapi.domain.Cartao;
 import io.github.nevitoniuri.cartoesapi.infra.exception.CartaoJaCadastradoException;
+import io.github.nevitoniuri.cartoesapi.infra.exception.CartaoNaoEncontradoException;
 import io.github.nevitoniuri.cartoesapi.infra.repository.CartaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ import java.util.Optional;
 public class CartaoService {
 
     private final CartaoRepository repository;
+
+    public Cartao findById(Long id) {
+        return repository.findById(id).orElseThrow(CartaoNaoEncontradoException::new);
+    }
 
     public void verificaExiste(Cartao cartao) {
         Optional<Cartao> optionalCartao = repository.findByNome(cartao.getNome());

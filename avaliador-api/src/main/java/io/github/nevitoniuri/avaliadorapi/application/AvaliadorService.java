@@ -2,16 +2,21 @@ package io.github.nevitoniuri.avaliadorapi.application;
 
 import feign.FeignException;
 import io.github.nevitoniuri.avaliadorapi.domain.model.CartaoAprovado;
+import io.github.nevitoniuri.avaliadorapi.domain.request.DadosSolicitacaoCartao;
+import io.github.nevitoniuri.avaliadorapi.domain.model.ProtocoloSolicitacaoCartao;
 import io.github.nevitoniuri.avaliadorapi.domain.response.AvaliacaoResponse;
 import io.github.nevitoniuri.avaliadorapi.domain.response.SituacaoClienteResponse;
+import io.github.nevitoniuri.avaliadorapi.exception.SolicitacaoCartaoException;
 import io.github.nevitoniuri.avaliadorapi.infra.client.CartoesControllerClient;
 import io.github.nevitoniuri.avaliadorapi.infra.client.ClienteControllerClient;
+import io.github.nevitoniuri.avaliadorapi.infra.queue.SolicitacaoCartaoPublisher;
 import io.github.nevitoniuri.clientesapi.infra.exception.ClienteNaoEncontradoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +24,7 @@ public class AvaliadorService {
 
     private final ClienteControllerClient clientesApiClient;
     private final CartoesControllerClient cartoesApiClient;
+    private final SolicitacaoCartaoPublisher solicitacaoCartaoPublisher;
 
     /**
      * Este método consulta os dados do cliente no serviço clientes-api, consulta os cartões desse cliente no serviço
@@ -63,5 +69,16 @@ public class AvaliadorService {
         } catch (FeignException.FeignClientException e) {
             throw new ClienteNaoEncontradoException();
         }
+    }
+
+    public ProtocoloSolicitacaoCartao solicitarCartao(DadosSolicitacaoCartao dados) {
+        try {
+            solicitacaoCartaoPublisher.solicitarCartao(dados);
+            var protocolo = UUID.randomUUID().toString();
+            return new ProtocoloSolicitacaoCartao(protocolo);
+        } catch (Exception e) {
+            throw new SolicitacaoCartaoException(e.getMessage());
+        }
+
     }
 }
