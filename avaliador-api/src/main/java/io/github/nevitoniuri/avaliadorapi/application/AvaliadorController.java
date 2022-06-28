@@ -23,7 +23,7 @@ public class AvaliadorController {
         return avaliadorService.obterSituacaoCliente(cpf);
     }
 
-    @PostMapping
+    @GetMapping
     public AvaliacaoResponse realizarAvaliacao(@RequestBody @Valid AvaliacaoRequest request) {
         return avaliadorService.realizarAvaliacao(request.getCpf(), request.getRenda());
     }

@@ -1,13 +1,12 @@
 package io.github.nevitoniuri.cartoesapi.application;
 
-import io.github.nevitoniuri.cartoesapi.domain.request.CartaoSalvarRequest;
 import io.github.nevitoniuri.cartoesapi.domain.Cartao;
 import io.github.nevitoniuri.cartoesapi.domain.CartaoVinculado;
 import io.github.nevitoniuri.cartoesapi.domain.dto.CartaoDTO;
 import io.github.nevitoniuri.cartoesapi.domain.dto.CartaoVinculadoDTO;
+import io.github.nevitoniuri.cartoesapi.domain.request.CartaoSalvarRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,9 +22,9 @@ public class CartaoController {
     private final CartaoVinculadoService cartaoVinculadoService;
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@RequestBody @Valid CartaoSalvarRequest cartao) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public void salvar(@RequestBody @Valid CartaoSalvarRequest cartao) {
         cartaoService.salvar(cartao.toModel());
-        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping(params = "renda")
