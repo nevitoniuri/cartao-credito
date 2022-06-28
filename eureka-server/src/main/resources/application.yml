@@ -1,6 +1,12 @@
 spring:
   application:
     name: eureka-server
+  security:
+    basic:
+      enabled: true
+    user:
+      name: eureka-admin
+      password: NatUALRogrES
 
 server:
   port: 8761
