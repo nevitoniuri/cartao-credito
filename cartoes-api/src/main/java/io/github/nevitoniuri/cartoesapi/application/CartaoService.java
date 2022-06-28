@@ -18,7 +18,7 @@ public class CartaoService {
 
     private final CartaoRepository repository;
 
-    public Cartao findById(Long id) {
+    public Cartao buscarPorId(Long id) {
         return repository.findById(id).orElseThrow(CartaoNaoEncontradoException::new);
     }
 
